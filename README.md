@@ -50,3 +50,6 @@ Source sync checkpoint (2026-11-19): completed Main ID + Duplicate ID notificati
 
 
 Source sync checkpoint (2026-11-19): live notification inbox delivery added (member-scoped and Admin policy-scoped Realtime subscriptions, INSERT/UPDATE/DELETE handling, channel cleanup). UI `94b7afbb3ad5b2ef11df68df8e43658f07ec8890`, test source `e23dda5aae6d4fc291c082907f1ec2aef58d8ff0`, status `93c78cbabbe3737ecc33b9a06334badd31460645`, register `f9a7fb98a46c83470c21798569b3d5928676527f`. Trigger TEST-only Preview sync.
+
+
+Source sync checkpoint (2026-11-19): member auction submission editing/resubmission added on BiddWorld completion-work. UI commits 9877925e96a83564d69ebce7be8b7a0bae927199, 658d955a0315d7d92d33e8eadabdbdd4c7ee0af8, 826332c36b14eff623be56a03b57f02e0386f24f; source migration 607eecceb05f11bfac3f9fb02f1d2e93261a9fa9; manifest 04f67481ae602ba8c6e61e0da5277e6ee5c6c0d4; source test 1522eb7d6f77dd5a2e45bdfc3e1e7c60fd067935; status 791432cf4da8e0c73e8832a405f002df9553ad2a; completion register 99b8e9900a7bbdeaa3322f5735ba91ce708a7634. Trigger TEST-only Preview deployment and verify its outcome in Actions.
