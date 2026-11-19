@@ -23,3 +23,6 @@ Before the first deployment, the repository owner must open **Settings → Pages
 - `BIDDWORLD_TEST_SUPABASE_PUBLISHABLE_KEY` = the **publishable** (not service-role) key from the isolated BiddWorld-TEST project.
 
 Do not add Production URL/keys or any service-role/secret key. The browser receives only the publishable key; database RLS and server-side RPC authorization must enforce access.
+
+
+Latest source sync checkpoint: BiddWorld development branch `completion-work`, batch commit `3aa2f114c2e6e57267f2f629fa202cb240d0a0f3` (Admin auction and Fixed Bid result validation). A push to this preview repository starts the isolated Pages workflow, which checks out the latest development branch. Deployment outcome must be confirmed in GitHub Actions before describing this checkpoint as live.
