@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build visual preview only (no tests or database credentials)
-        run: npm run build
+        run: npx vite build
         env:
           GITHUB_PAGES: 'true'
           VITE_BIDDWORLD_MODE: preview
