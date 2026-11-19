@@ -17,13 +17,22 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout preview repository
+      - name: Checkout preview deployment configuration
         uses: actions/checkout@v4
+      - name: Checkout current BiddWorld development branch
+        uses: actions/checkout@v4
+        with:
+          repository: kkjan2006-self/biddworld
+          ref: completion-work
+          path: app
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+      - name: Install current development dependencies
+        working-directory: app
         run: npm ci
       - name: Verify isolated TEST configuration
         shell: bash
@@ -34,7 +43,8 @@ jobs:
           test -n "$VITE_SUPABASE_URL" || { echo "::error::Missing BIDDWORLD_TEST_SUPABASE_URL repository secret."; exit 1; }
           test -n "$VITE_SUPABASE_PUBLISHABLE_KEY" || { echo "::error::Missing BIDDWORLD_TEST_SUPABASE_PUBLISHABLE_KEY repository secret."; exit 1; }
           test "$VITE_SUPABASE_URL" = "https://yoaauthwejdgaevfvwpo.supabase.co" || { echo "::error::Preview must connect only to the isolated TEST Supabase project."; exit 1; }
-      - name: Build isolated TEST-connected preview (no tests)
+      - name: Build current development preview (no tests)
+        working-directory: app
         run: npx vite build
         env:
           GITHUB_PAGES: 'true'
@@ -46,7 +56,7 @@ jobs:
       - name: Upload preview site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: app/dist
       - name: Publish preview site
         id: deployment
         uses: actions/deploy-pages@v4
