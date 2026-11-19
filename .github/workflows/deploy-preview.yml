@@ -25,6 +25,15 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm ci
+      - name: Verify isolated TEST configuration
+        shell: bash
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.BIDDWORLD_TEST_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.BIDDWORLD_TEST_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          test -n "$VITE_SUPABASE_URL" || { echo "::error::Missing BIDDWORLD_TEST_SUPABASE_URL repository secret."; exit 1; }
+          test -n "$VITE_SUPABASE_PUBLISHABLE_KEY" || { echo "::error::Missing BIDDWORLD_TEST_SUPABASE_PUBLISHABLE_KEY repository secret."; exit 1; }
+          test "$VITE_SUPABASE_URL" = "https://yoaauthwejdgaevfvwpo.supabase.co" || { echo "::error::Preview must connect only to the isolated TEST Supabase project."; exit 1; }
       - name: Build isolated TEST-connected preview (no tests)
         run: npx vite build
         env:
