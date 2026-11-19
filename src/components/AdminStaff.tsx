@@ -1,0 +1,20 @@
+import {useEffect,useState} from 'react';
+import {RefreshCw,ShieldCheck,PackageCheck} from 'lucide-react';
+import {supabase} from '../lib/supabase';
+import AdminWalletFundingReview from './AdminWalletFundingReview';
+import AdminAuctionSubmissionReview from './AdminAuctionSubmissionReview';
+type Activation={id:string;activation_number:string;member_code:string;member_name:string|null;package_name:string;amount_paid:number;currency:string;bid_wallet_credit:number;payment_reference:string;receipt_path:string|null;submitted_at:string};
+export default function AdminStaff(){
+ const[rows,setRows]=useState<Activation[]>([]),[urls,setUrls]=useState<Record<string,string>>({}),[notes,setNotes]=useState<Record<string,string>>({}),[busy,setBusy]=useState(''),[message,setMessage]=useState('');
+ async function load(){if(!supabase)return;setMessage('');const{data,error}=await supabase.rpc('admin_list_pending_activations');if(error){setMessage(error.message);return;}const items=(data??[]) as Activation[];setRows(items);const next:Record<string,string>={};await Promise.all(items.map(async item=>{if(!item.receipt_path)return;const{data}=await supabase.storage.from('package-receipts').createSignedUrl(item.receipt_path,300);if(data?.signedUrl)next[item.id]=data.signedUrl;}));setUrls(next);}
+ useEffect(()=>{void load();},[]);
+ async function review(id:string,approve:boolean){if(!supabase||busy)return;if(!window.confirm(approve?'Approve this verified package payment and activate the package?':'Reject this package payment?'))return;setBusy(id);setMessage('');try{const{error}=await supabase.rpc('admin_review_package_activation',{p_activation_id:id,p_approve:approve});if(error)throw error;setMessage(approve?'Package payment approved. Package activation and Bid Wallet credit completed.':'Package payment rejected. No wallet credit was issued.');await load();}catch(e){setMessage(e instanceof Error?e.message:'The package payment could not be reviewed.');}finally{setBusy('');}}
+ return <main className="adminDashboard" style={{padding:'18px 12px',maxWidth:1000,margin:'0 auto'}}><header style={{display:'flex',alignItems:'center',gap:10,flexWrap:'wrap'}}><ShieldCheck/><div><h2>Payment Review Staff</h2><p>Restricted access · Package Payments, Main Wallet Add Money and Auction Listing Reviews</p></div><button className="outline small" onClick={()=>void load()}><RefreshCw size={14}/> Refresh</button></header>
+ {message&&<div className="notice" role="status">{message}</div>}
+ <section className="adminModuleDetail" style={{marginTop:18}}><h3><PackageCheck size={18}/> Package Activation Reviews ({rows.length})</h3><p>Verify the UTR and payment receipt before approving. Approval activates the package and applies the configured Bid Wallet credit.</p>
+ {rows.length===0?<div className="empty">No pending package payment requests.</div>:<div className="referralList">{rows.map(item=><article key={item.id} style={{display:'flex',flexDirection:'column',gap:7,padding:14}}><b>{item.member_code} · {item.member_name||'Member'}</b><span>{item.package_name} · ₹{Number(item.amount_paid).toLocaleString('en-IN')}</span><small>Activation: {item.activation_number} · UTR: {item.payment_reference}</small><small>Bid Wallet credit: ₹{Number(item.bid_wallet_credit).toLocaleString('en-IN')}</small><small>Submitted: {new Date(item.submitted_at).toLocaleString()}</small>{urls[item.id]?<a href={urls[item.id]} target="_blank" rel="noreferrer">Open payment receipt</a>:item.receipt_path?<small>Receipt link unavailable. Refresh to retry.</small>:<small>No receipt attached.</small>}<label>Review note<textarea value={notes[item.id]??''} maxLength={500} onChange={e=>setNotes(v=>({...v,[item.id]:e.target.value}))}/></label><div style={{display:'flex',gap:8,flexWrap:'wrap'}}><button className="primary small" disabled={!!busy} onClick={()=>void review(item.id,true)}>{busy===item.id?'Processing…':'Approve & Activate'}</button><button className="outline small" disabled={!!busy} onClick={()=>void review(item.id,false)}>Reject</button></div></article>)}</div>}
+ </section>
+ <AdminWalletFundingReview/>
+ <AdminAuctionSubmissionReview/>
+ </main>;
+}
