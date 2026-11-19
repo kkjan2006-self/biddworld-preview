@@ -47,3 +47,6 @@ Source sync checkpoint (2026-11-19): expanded member workflow in-app notificatio
 
 
 Source sync checkpoint (2026-11-19): completed Main ID + Duplicate ID notification trigger wiring; trigger now handles both ID types. Migration `56e2d95f0cb5c7cba4664fdf2cfad6f46c680556`, source-contract test `6c81f6ac756e9b36c33629c774fcc437b8d76000`, status `f59221b49dd9c8c3e0470284d7cce0baa41cf1fe`, register `d9b9f8c7264ab0954c78f74e7a8549cb07fea4ff`. Trigger TEST-only Preview sync.
+
+
+Source sync checkpoint (2026-11-19): live notification inbox delivery added (member-scoped and Admin policy-scoped Realtime subscriptions, INSERT/UPDATE/DELETE handling, channel cleanup). UI `94b7afbb3ad5b2ef11df68df8e43658f07ec8890`, test source `e23dda5aae6d4fc291c082907f1ec2aef58d8ff0`, status `93c78cbabbe3737ecc33b9a06334badd31460645`, register `f9a7fb98a46c83470c21798569b3d5928676527f`. Trigger TEST-only Preview sync.
