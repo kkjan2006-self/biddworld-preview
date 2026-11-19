@@ -25,11 +25,13 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm ci
-      - name: Build visual preview only (no tests or database credentials)
+      - name: Build isolated TEST-connected preview (no tests)
         run: npx vite build
         env:
           GITHUB_PAGES: 'true'
-          VITE_BIDDWORLD_MODE: preview
+          VITE_BIDDWORLD_MODE: test
+          VITE_SUPABASE_URL: ${{ secrets.BIDDWORLD_TEST_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.BIDDWORLD_TEST_SUPABASE_PUBLISHABLE_KEY }}
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload preview site
