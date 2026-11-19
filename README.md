@@ -26,3 +26,6 @@ Do not add Production URL/keys or any service-role/secret key. The browser recei
 
 
 Latest source sync checkpoint: BiddWorld development branch `completion-work`, batch commit `3aa2f114c2e6e57267f2f629fa202cb240d0a0f3` (Admin auction and Fixed Bid result validation). A push to this preview repository starts the isolated Pages workflow, which checks out the latest development branch. Deployment outcome must be confirmed in GitHub Actions before describing this checkpoint as live.
+
+
+Latest development source checkpoint: `52722b2601f118da693b2cd8d273c4b90b70919c` (Admin Staff JSX correction), plus subsequent status/register commits. This commit updates the source consumed by the preview workflow; deployment status is confirmed separately in Actions.
