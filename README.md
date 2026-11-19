@@ -38,3 +38,6 @@ Source sync checkpoint (2026-11-19): corrected Admin workspace delivery-tracking
 
 
 Source sync checkpoint (2026-11-19): corrected escaped newline syntax in Admin Matrix commissions (`7531e99d5550b515298a2fd87e6f097618556748`), regression source `07b2bc2d69e4a5bb9abd54ff52d338b309f0b7f3`, status `2a50b5c923d79aedc5654d31d98e75878de12bcc`, register `8d813ce33bd341e6d87b43ca6fe4a8072a8507ad`. Trigger TEST-only Preview deployment.
+
+
+Source sync checkpoint (2026-11-19): BiddWorld `completion-work` now includes member workflow status notifications migration `e4a48795d1a23dce3f247bc1aff89b4d410ba6c4`, source-contract test `f454b21108c11d3f7d37f3f85e943f28e69bd972`, forward manifest `19a37d802f3fe382224b56007846b856a56db738`, status `a74efd24f41dcdb4971def7ddc4e8c80d74d45a5`, and register `ccc3c513e04d94fa3950f29d3da2435db1c2132d`. Trigger TEST-only Preview synchronization and deployment.
