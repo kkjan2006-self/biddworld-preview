@@ -13,7 +13,7 @@ import {validateAuctionDraftInput} from '../lib/auction-draft';
 import {parseDuplicateIdCreationResult} from '../lib/duplicate-id-result';
 import {getEligibleUnderIds,validateDistinctDuplicatePlacement} from '../lib/duplicate-id-placement';
 type Counts={members:number;packages:number;pendingActivations:number;pendingWithdrawals:number;auctions:number;campaigns:number};
-function adminProductImageUrl(path:string|null|undefined){if(!path)return '';if(/^https?:\\/\\//i.test(path))return path;return supabase?.storage.from('product-media').getPublicUrl(path).data.publicUrl??'';}
+function adminProductImageUrl(path:string|null|undefined){if(!path)return '';if(/^https?:\/\//i.test(path))return path;return supabase?.storage.from('product-media').getPublicUrl(path).data.publicUrl??'';}
 
 type SponsorMember={member_code:string;display_name:string;phone:string;sponsor_code:string;created_at:string};
 type MlmOverview={total_members:number;active_members:number;direct_relationships:number;pending_activations:number;verified_activations:number;commission_total:number;withdrawal_pending:number};
