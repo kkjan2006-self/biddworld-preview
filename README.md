@@ -44,3 +44,6 @@ Source sync checkpoint (2026-11-19): BiddWorld `completion-work` now includes me
 
 
 Source sync checkpoint (2026-11-19): expanded member workflow in-app notifications to Main ID status and wallet funding approval/rejection. Latest migration commit `5bb7aba954e76b128c84a8440b33908ef8e718d3`; regression source `1c710e4918d147ff2a98407a90b8d301b827962b`; status `739ef1ddf5f45a42c147618b9204bb4463f8cf63`; completion register `f744824c5beb73896d57beda2a5c7ad99e6d5ced`. Trigger TEST-only Preview sync.
+
+
+Source sync checkpoint (2026-11-19): completed Main ID + Duplicate ID notification trigger wiring; trigger now handles both ID types. Migration `56e2d95f0cb5c7cba4664fdf2cfad6f46c680556`, source-contract test `6c81f6ac756e9b36c33629c774fcc437b8d76000`, status `f59221b49dd9c8c3e0470284d7cce0baa41cf1fe`, register `d9b9f8c7264ab0954c78f74e7a8549cb07fea4ff`. Trigger TEST-only Preview sync.
