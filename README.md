@@ -35,3 +35,6 @@ Source sync checkpoint (2026-11-19): wallet funding review page validation updat
 
 
 Source sync checkpoint (2026-11-19): corrected Admin workspace delivery-tracking block structure in BiddWorld `completion-work` (`df4e7eb459bdd97aa03a97e24011cd14f191b064`), regression source `2a100bfe83712f8cc65dbd82ee5af436dc69522b`, status `a6da66a0648b7a761c980e55f815432bb83f5d2b`, register `7bf844ad46c9d49550ba20a8594e2465187a4302`. This README update triggers the TEST-only Preview workflow; check Actions for its final result.
+
+
+Source sync checkpoint (2026-11-19): corrected escaped newline syntax in Admin Matrix commissions (`7531e99d5550b515298a2fd87e6f097618556748`), regression source `07b2bc2d69e4a5bb9abd54ff52d338b309f0b7f3`, status `2a50b5c923d79aedc5654d31d98e75878de12bcc`, register `8d813ce33bd341e6d87b43ca6fe4a8072a8507ad`. Trigger TEST-only Preview deployment.
