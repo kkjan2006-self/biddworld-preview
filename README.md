@@ -6,7 +6,7 @@ This repository contains a separate preview copy of the `completion-work` branch
 - Website base path: `/biddworld-preview/`
 - Deployment: GitHub Pages via `.github/workflows/deploy-preview.yml` (Pages must be enabled once by the repository owner)
 - Build only: automated tests are intentionally not run in the preview workflow
-- Database: preview uses only the isolated BiddWorld-TEST Supabase project through GitHub Actions secrets; never configure Production credentials here. Once the owner adds the two required repository secrets, Auth, member/admin reads and backend actions can connect to TEST. Actual feature availability still depends on the installed TEST schema, RLS, Storage policies and feature settings.
+- Database: preview uses only the isolated BiddWorld-TEST Supabase project through GitHub Actions secrets; never configure Production credentials here. The workflow now fails closed before deployment if either secret is missing or if the URL is not the exact TEST project. Once the owner adds the two required repository secrets, Auth, member/admin reads and backend actions can connect to TEST. Actual feature availability still depends on the installed TEST schema, RLS, Storage policies and feature settings.
 - Main project repository and its `main` branch are not changed by this preview repository
 
 Preview URL (available after the GitHub Pages workflow succeeds):
