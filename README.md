@@ -29,3 +29,6 @@ Latest source sync checkpoint: BiddWorld development branch `completion-work`, b
 
 
 Latest development source checkpoint: `52722b2601f118da693b2cd8d273c4b90b70919c` (Admin Staff JSX correction), plus subsequent status/register commits. This commit updates the source consumed by the preview workflow; deployment status is confirmed separately in Actions.
+
+
+Source sync checkpoint (2026-11-19): wallet funding review page validation update on BiddWorld `completion-work` (UI `f5fc6d51bd9abfad6229d173b927ee9e3ff3fd1b`; source regression `c59c674af07ce68d11ebad4df8ba0c5c9e445818`; status `ca02b496d08e19267faadb81dca2897e4c417ec7`; register `f116e902cdc410dbcd79bb4a07b29f57eb64b4d8`). Push triggers the isolated TEST-only Preview workflow; verify Actions before treating the update as live.
