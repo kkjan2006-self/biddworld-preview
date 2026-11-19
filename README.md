@@ -41,3 +41,6 @@ Source sync checkpoint (2026-11-19): corrected escaped newline syntax in Admin M
 
 
 Source sync checkpoint (2026-11-19): BiddWorld `completion-work` now includes member workflow status notifications migration `e4a48795d1a23dce3f247bc1aff89b4d410ba6c4`, source-contract test `f454b21108c11d3f7d37f3f85e943f28e69bd972`, forward manifest `19a37d802f3fe382224b56007846b856a56db738`, status `a74efd24f41dcdb4971def7ddc4e8c80d74d45a5`, and register `ccc3c513e04d94fa3950f29d3da2435db1c2132d`. Trigger TEST-only Preview synchronization and deployment.
+
+
+Source sync checkpoint (2026-11-19): expanded member workflow in-app notifications to Main ID status and wallet funding approval/rejection. Latest migration commit `5bb7aba954e76b128c84a8440b33908ef8e718d3`; regression source `1c710e4918d147ff2a98407a90b8d301b827962b`; status `739ef1ddf5f45a42c147618b9204bb4463f8cf63`; completion register `f744824c5beb73896d57beda2a5c7ad99e6d5ced`. Trigger TEST-only Preview sync.
