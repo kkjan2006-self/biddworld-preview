@@ -69,3 +69,8 @@ The preview workflow now needs to consume the latest BiddWorld `completion-work`
 ## Source sync checkpoint (2026-11-20 — strict build repair)
 
 BiddWorld `completion-work` now includes commit `38fe63c0dd14427e65995826d0829232e7edb056`, correcting the strict TypeScript failures found by Preview run #30 across Admin data parsing, restricted Staff button states, nullable TEST client handling, and Wallet History filtering. This README commit triggers a fresh isolated TEST-only type-check/build/deployment using the corrected `/biddworld-preview/` base path. Verify the new Actions run before treating the site as published.
+
+
+## Source sync checkpoint (2026-11-20 — follow-up strict type fix)
+
+Fixed the remaining optional `has_more` boolean narrowing error in Admin Duplicate ID pagination. Latest BiddWorld development commit: `4e34dc4f147434903643bd9f6717d18e488b90fa`. This README update triggers the next isolated TEST-only type-check/build/deployment.
