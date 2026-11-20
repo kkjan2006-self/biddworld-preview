@@ -64,3 +64,8 @@ Source sync checkpoint (2026-11-19): BiddWorld `completion-work` now includes me
 ## Source sync checkpoint (2026-11-20)
 
 The preview workflow now needs to consume the latest BiddWorld `completion-work` head `b3cda1259e29e49a552a710131eb8a1f6c9b7cd7` (wallet funding member history and Admin review queue integrity batch). This README commit triggers a fresh isolated TEST-only build/deployment. The workflow must pass its exact TEST URL and publishable-key checks; it does not apply Supabase migrations or run the application test suite. Treat the preview as updated only after the new GitHub Actions run completes successfully.
+
+
+## Source sync checkpoint (2026-11-20 — strict build repair)
+
+BiddWorld `completion-work` now includes commit `38fe63c0dd14427e65995826d0829232e7edb056`, correcting the strict TypeScript failures found by Preview run #30 across Admin data parsing, restricted Staff button states, nullable TEST client handling, and Wallet History filtering. This README commit triggers a fresh isolated TEST-only type-check/build/deployment using the corrected `/biddworld-preview/` base path. Verify the new Actions run before treating the site as published.
