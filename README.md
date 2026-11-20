@@ -59,3 +59,8 @@ Source sync checkpoint (2026-11-19): separate OLX-style member product submissio
 
 
 Source sync checkpoint (2026-11-19): BiddWorld `completion-work` now includes member product listing edit/resubmit for Pending and Rejected submissions. Migration `20261119450000_member_product_submission_editing.sql`; UI `dd0448a0213eb6bf1f124d17be29c241cca13b53`; clean-install manifest `700343a79339b0293db5bc024451f65f26d28630`; source regression `2377b59610ff1ec85409c760b27d67dd10bc5240`; status `0cac27191ec95a85de6b4e1b4a4e313b766c4140`; completion register `62684d5329fe138a1aba30799aa9e3e98885d52c`; remaining work `cac1f96e8084d15ff98ee8bce0fae01d6597dda0`. This sync triggers the isolated TEST-only Preview deployment; verify Actions before treating the update as live.
+
+
+## Source sync checkpoint (2026-11-20)
+
+The preview workflow now needs to consume the latest BiddWorld `completion-work` head `b3cda1259e29e49a552a710131eb8a1f6c9b7cd7` (wallet funding member history and Admin review queue integrity batch). This README commit triggers a fresh isolated TEST-only build/deployment. The workflow must pass its exact TEST URL and publishable-key checks; it does not apply Supabase migrations or run the application test suite. Treat the preview as updated only after the new GitHub Actions run completes successfully.
