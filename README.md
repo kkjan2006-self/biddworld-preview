@@ -18,3 +18,7 @@ The preview workflow is triggered by this commit and checks out the current Bidd
 `eb805c6f7cf44aa1acb48b88225ef2a8afa18e6b` (Fixed Bid catalogue strict ordering and continuation-page boundary integrity, following the package activation response and Admin package activation pagination integrity batches).
 
 The isolated preview workflow runs the project's configured TypeScript/build step only, uses the exact TEST Supabase project, and does not apply database migrations or run the automated test suite. Treat the preview as updated only after the corresponding GitHub Actions run completes successfully.
+
+## Deployment retry checkpoint (2026-11-20)
+
+The previous preview build checked out BiddWorld `completion-work` commit `eb805c6f7cf44aa1acb48b88225ef2a8afa18e6b` and correctly stopped at a TypeScript syntax error in `src/components/MemberPlaceAuction.tsx`. That syntax error has been corrected in BiddWorld commit `de91135a7db146fc814a2550439efdac000a79a9`. This README update triggers a fresh TEST-only Pages build against the latest `completion-work` head. Do not treat the site as updated until its GitHub Actions deployment run succeeds.
