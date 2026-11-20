@@ -26,3 +26,8 @@ The previous preview build checked out BiddWorld `completion-work` commit `eb805
 ## Latest TypeScript correction checkpoint (2026-11-20)
 
 The previous preview build identified strict TypeScript issues in recent development source. They have been corrected on `completion-work`, now at `7143df8ae6bb96c7b6039424a97ed691b4b901c7`: Supabase PromiseLike error handling, unknown RPC response narrowing, missing Fixed Bid ordering helpers, image-path predicate callback typing, and Wallet History's nested relation array typing. This README commit triggers another isolated TEST-only preview build. Publication is pending the Actions result.
+
+
+## Latest source sync checkpoint (2026-11-20, 21:57 IST)
+
+This deployment trigger points the isolated Pages workflow at BiddWorld `completion-work` HEAD `362a6302adc88bc43fb95d6f4f15c27d0317d333`. The main project repository's `main` branch remains unchanged. The workflow uses only the configured TEST Supabase project; no migrations are applied. Deployment is pending the GitHub Actions result.
